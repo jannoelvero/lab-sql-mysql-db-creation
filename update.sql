@@ -4,21 +4,16 @@ SET SQL_SAFE_UPDATES = 0;
 
 UPDATE customers
 SET email = 'ppicasso@gmail.com'
-WHERE customer_code = '10001';
+WHERE customer_name = 'Pablo Picasso';
 
 UPDATE customers
 SET email = 'lincoln@us.gov'
-WHERE customer_code = '20001';
+WHERE customer_name = 'Abraham Lincoln';
 
 UPDATE customers
 SET email = 'hello@napoleon.me'
-WHERE customer_code = '30001';
+WHERE customer_name = 'Napoléon Bonaparte';
 
 SET SQL_SAFE_UPDATES = 1;
-
-SELECT
-    customer_id,
-    customer_code,
-    customer_name,
-    email
+SELECT customer_name, email
 FROM customers;
