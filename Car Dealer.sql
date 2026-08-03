@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `Cars` (
 
 
 CREATE TABLE IF NOT EXISTS `Customers` (
-	`CustomerID` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`customer_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(255) NOT NULL,
 	`Phone` VARCHAR(255) NOT NULL,
 	`Email` VARCHAR(255) NOT NULL,
@@ -18,37 +18,34 @@ CREATE TABLE IF NOT EXISTS `Customers` (
 	`State_Province` VARCHAR(255) NOT NULL,
 	`Country` VARCHAR(255) NOT NULL,
 	`Postal_Code` VARCHAR(255) NOT NULL,
-	`` ,
-	PRIMARY KEY(`CustomerID`)
+	PRIMARY KEY(`customer_id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Salespersons` (
-	`SalespersonID` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`salesperson_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`Staff_ID` VARCHAR(255) NOT NULL,
-	`Name` VARCHAR(255),
-	`Store` VARCHAR(255),
-	PRIMARY KEY(`SalespersonID`)
+	`Name` VARCHAR(255) NOT NULL,
+	`Store` VARCHAR(255) NOT NULL,
+	PRIMARY KEY(`salesperson_id`)
 );
 
 
 CREATE TABLE IF NOT EXISTS `Invoices` (
 	`invoice_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	`invoice-date` VARCHAR(255) NOT NULL,
 	`car_id` BIGINT NOT NULL,
 	`customer_id` BIGINT NOT NULL,
 	`salesperson_id` BIGINT NOT NULL,
-	`sale_price` FLOAT NOT NULL,
 	PRIMARY KEY(`invoice_id`)
 );
 
 
 ALTER TABLE `Customers`
-ADD FOREIGN KEY(`CustomerID`) REFERENCES `Invoices`(`invoice_id`)
+ADD FOREIGN KEY(`customer_id`) REFERENCES `Invoices`(`invoice_id`)
 ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `Cars`
 ADD FOREIGN KEY(`car_id`) REFERENCES `Invoices`(`invoice_id`)
 ON UPDATE CASCADE ON DELETE CASCADE;
 ALTER TABLE `Salespersons`
-ADD FOREIGN KEY(`SalespersonID`) REFERENCES `Invoices`(`invoice_id`)
+ADD FOREIGN KEY(`salesperson_id`) REFERENCES `Invoices`(`invoice_id`)
 ON UPDATE CASCADE ON DELETE CASCADE;
