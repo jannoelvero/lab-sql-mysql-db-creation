@@ -48,6 +48,8 @@ By completing this lab, you will gain valuable experience in designing and creat
 
 ### Entity Relationship Diagram
 
+![ER Diagram](erd.png)
+
 The diagram below shows the relationships among the cars, customers, salespersons, and invoices tables.
 
 ![Car Dealership ER Diagram](erd.png)
